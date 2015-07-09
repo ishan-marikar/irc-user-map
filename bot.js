@@ -33,11 +33,12 @@ module.exports = function(io, bot) {
         request(url, function(error, response, body) {
           // parse the JSON response and format it into an elegant dictionary
           // which the client end can parse without the excessive bloat
+          var jsonResponse;
           try {
-            var jsonResponse = JSON.parse(body);
+            jsonResponse = JSON.parse(body);
           }
-          catch (error){
-            console.log("Parsing error: ", error);
+          catch (_error){
+            console.log("Parsing error: ", _error);
           }
           var data = {
             status: "join",
